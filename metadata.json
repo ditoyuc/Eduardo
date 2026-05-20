@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Sons of Hell - RR Games",
+  "description": "Sitio oficial y tienda de comercio electrónico para adquirir ediciones especiales y merchandising del videojuego Sons of Hell.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
