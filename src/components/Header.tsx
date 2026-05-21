@@ -132,17 +132,6 @@ export default function Header({
           >
             JUGABILIDAD y SISTEMA
           </button>
-          <button
-            onClick={() => handlePageChange("register")}
-            className={`font-label-caps text-xs sm:text-sm tracking-widest pb-1 transition-all duration-300 pointer-events-auto cursor-pointer ${
-              currentPage === "register"
-                ? "text-brand-tertiary border-b-2 border-brand-tertiary font-bold"
-                : "text-brand-light/70 hover:text-brand-tertiary"
-            }`}
-            id="nav-register"
-          >
-            REGISTRARSE
-          </button>
         </nav>
 
         {/* Utility CTAs */}

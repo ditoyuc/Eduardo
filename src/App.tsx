@@ -178,11 +178,7 @@ export default function App() {
   };
 
   const handleProceedToCheckout = () => {
-    if (username) {
-      setCurrentPage("shipping");
-    } else {
-      setCurrentPage("login");
-    }
+    setCurrentPage("shipping");
   };
 
   const handleLoginRegisterSuccess = (nick: string) => {
