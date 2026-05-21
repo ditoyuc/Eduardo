@@ -53,31 +53,31 @@ export default function CartDrawer({
 
   return (
     <div 
-      className="fixed inset-0 z-50 overflow-hidden bg-black/75 backdrop-blur-sm flex justify-end"
+      className="fixed inset-0 z-50 overflow-hidden bg-black/85 backdrop-blur-md flex justify-end"
       onClick={onClose}
       id="cart-backdrop"
     >
       {/* Slide outer drawer */}
       <div 
-        className="w-full max-w-md h-full bg-background border-l border-outline-variant/60 flex flex-col shadow-2xl relative"
+        className="w-full max-w-md h-full bg-[#0D0D0D] border-l border-brand-border flex flex-col shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
         id="cart-drawer-panel"
       >
         {/* Corner bolt details */}
-        <span className="absolute top-2 left-2 text-secondary/30 text-[9px] font-mono">⚙</span>
-        <span className="absolute bottom-2 left-2 text-secondary/30 text-[9px] font-mono">⚙</span>
+        <span className="absolute top-2 left-2 text-brand-tertiary/40 text-[9px] font-mono">⚙</span>
+        <span className="absolute bottom-2 left-2 text-brand-tertiary/40 text-[9px] font-mono">⚙</span>
 
         {/* Drawer Header */}
-        <div className="flex items-center justify-between border-b border-outline-variant/30 px-6 py-5 bg-surface-container-low/50">
+        <div className="flex items-center justify-between border-b border-brand-border/40 px-6 py-5 bg-brand-surface">
           <div className="flex items-center gap-2">
-            <Scroll className="text-secondary w-5 h-5" />
-            <h3 className="font-h1-cinematic text-sm sm:text-base text-on-surface tracking-wider uppercase">
+            <Scroll className="text-brand-tertiary w-5 h-5" />
+            <h3 className="font-h1-cinematic text-sm sm:text-base text-white tracking-wider uppercase">
               COFRE DE ADQUISICIONES
             </h3>
           </div>
           <button 
             onClick={onClose}
-            className="p-1 px-2.5 text-on-surface hover:text-secondary font-sh-subheader text-xs border border-outline-variant/35 rounded-none cursor-pointer"
+            className="p-1 px-3 text-brand-light hover:text-brand-tertiary font-sh-subheader text-xs border border-brand-border hover:border-brand-tertiary transition-all rounded-[6px] cursor-pointer"
             id="close-cart-btn"
           >
             ✕ VOLVER
@@ -92,11 +92,11 @@ export default function CartDrawer({
             <>
               {cartItems.length === 0 ? (
                 <div className="text-center my-auto px-4 py-12 flex flex-col items-center">
-                  <span className="text-secondary/20 text-6xl block mb-4">🛡</span>
-                  <p className="font-sh-subheader text-on-surface-variant text-base block font-bold mb-2">
+                  <span className="text-brand-tertiary/20 text-6xl block mb-4">🛡</span>
+                  <p className="font-sh-subheader text-white text-base block font-bold mb-2">
                     EL COFRE ESTÁ VACÍO
                   </p>
-                  <p className="font-body-main text-[#e5e2e1]/70 leading-relaxed text-sm max-w-xs mx-auto">
+                  <p className="font-body-main text-brand-light/70 leading-relaxed text-sm max-w-xs mx-auto">
                     Añade ediciones especiales del juego o merch oficial en la tienda militar para reclamar tus posesiones.
                   </p>
                 </div>
@@ -105,7 +105,7 @@ export default function CartDrawer({
                   {cartItems.map((item, idx) => (
                     <div 
                       key={`${item.product.id}-${item.selectedSize || "none"}`}
-                      className="flex gap-4 border-b border-outline-variant/20 pb-4 relative"
+                      className="flex gap-4 border-b border-brand-border/30 pb-4 relative"
                       id={`cart-item-${idx}`}
                     >
                       {/* Logo or product thumbnail */}
@@ -113,36 +113,36 @@ export default function CartDrawer({
                         src={item.product.image} 
                         alt={item.product.title} 
                         referrerPolicy="no-referrer"
-                        className="w-16 h-16 sm:w-20 sm:h-20 object-cover border border-outline-variant"
+                        className="w-16 h-16 sm:w-20 sm:h-20 object-cover border border-brand-border rounded-[8px]"
                       />
 
                       <div className="flex-1 flex flex-col justify-between gap-1">
                         <div>
                           <div className="flex justify-between items-start">
-                            <h4 className="font-sh-subheader text-[#e5e2e1] text-sm font-bold uppercase tracking-wide">
+                            <h4 className="font-sh-subheader text-white text-sm font-bold uppercase tracking-wide text-left">
                               {item.product.title}
                             </h4>
                             <button
                               onClick={() => onRemoveItem(item.product.id, item.selectedSize, item.selectedPlatform)}
-                              className="text-on-surface-variant hover:text-rose-400 p-0.5 cursor-pointer ml-2"
+                              className="text-brand-light/60 hover:text-rose-400 p-0.5 cursor-pointer ml-2 transition-colors"
                               title="Remover de adquisiciones"
                               id={`remove-item-${idx}`}
                             >
                               <Trash2 className="w-4 h-4" />
                             </button>
                           </div>
-                          <span className="font-label-caps text-[9px] text-[#eebd8e] block uppercase mt-0.5">
+                          <span className="font-sh-subheader text-[9px] text-brand-tertiary block uppercase mt-0.5 text-left">
                             {item.product.subtitle} {item.selectedSize && `• Talla: ${item.selectedSize}`} {item.selectedPlatform && `• Plataforma: ${item.selectedPlatform}`}
                           </span>
                         </div>
 
                         {/* Adjust count counters */}
                         <div className="flex items-center justify-between mt-2">
-                          <div className="flex items-center gap-1 border border-outline-variant/50 p-0.5 bg-black/20">
+                          <div className="flex items-center gap-1 border border-brand-border/60 p-0.5 bg-black/40 rounded-[4px]">
                             <button
                               onClick={() => onUpdateQuantity(item.product.id, -1, item.selectedSize, item.selectedPlatform)}
                               disabled={item.quantity <= 1}
-                              className="w-5 h-5 flex items-center justify-center p-0.5 disabled:opacity-35 text-secondary hover:text-white cursor-pointer select-none"
+                              className="w-5 h-5 flex items-center justify-center p-0.5 disabled:opacity-35 text-brand-tertiary hover:text-white cursor-pointer select-none"
                               id={`qty-decrease-${idx}`}
                             >
                               <Minus className="w-3 h-3" />
@@ -150,7 +150,7 @@ export default function CartDrawer({
                             <span className="font-mono text-xs w-6 text-center text-white font-bold">{item.quantity}</span>
                             <button
                               onClick={() => onUpdateQuantity(item.product.id, 1, item.selectedSize, item.selectedPlatform)}
-                              className="w-5 h-5 flex items-center justify-center p-0.5 text-secondary hover:text-white cursor-pointer select-none"
+                              className="w-5 h-5 flex items-center justify-center p-0.5 text-brand-tertiary hover:text-white cursor-pointer select-none"
                               id={`qty-increase-${idx}`}
                             >
                               <Plus className="w-3 h-3" />
@@ -158,7 +158,7 @@ export default function CartDrawer({
                           </div>
 
                           
-                          <span className="font-mono text-xs text-secondary font-bold">
+                          <span className="font-mono text-xs text-brand-tertiary font-bold">
                             ${(item.product.price * item.quantity).toFixed(2)}
                           </span>
                         </div>
@@ -167,18 +167,17 @@ export default function CartDrawer({
                   ))}
                 </div>
               )}
-
               {/* Cost specifications and footer */}
               {cartItems.length > 0 && (
-                <div className="border-t border-outline-variant/30 pt-6 mt-6 flex flex-col gap-4">
-                  <div className="flex flex-col gap-2 font-sans text-xs text-on-surface-variant">
+                <div className="border-t border-brand-border/40 pt-6 mt-6 flex flex-col gap-4">
+                  <div className="flex flex-col gap-2 font-sans text-xs text-brand-light/75">
                     <div className="flex justify-between">
                       <span>Subtotal de Adquisiciones:</span>
                       <span className="text-white font-mono">${subtotal.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="flex items-center gap-1.5">
-                        <Truck className="w-3.5 h-3.5 text-secondary" />
+                        <Truck className="w-3.5 h-3.5 text-brand-tertiary" />
                         Despacho por Carabela Real:
                       </span>
                       <span className="text-white font-mono">
@@ -186,20 +185,20 @@ export default function CartDrawer({
                       </span>
                     </div>
                     {shippingCost > 0 && (
-                      <span className="font-body-main text-[10px] text-secondary bg-secondary/5 p-1.5 border border-secondary/15">
+                      <span className="font-body-main text-[10px] text-brand-tertiary bg-brand-secondary/15 p-1.5 border border-brand-secondary/30 rounded-[4px]">
                         * ¡Agrega ${(100 - subtotal).toFixed(2)} más para envío real sin costo!
                       </span>
                     )}
                   </div>
 
-                  <div className="border-t border-outline-variant/30 pt-4 flex justify-between font-sh-subheader text-sm sm:text-base">
-                    <span className="text-secondary tracking-widest font-bold">VALOR FINAL DEL COFRE:</span>
+                  <div className="border-t border-brand-border/40 pt-4 flex justify-between font-sh-subheader text-sm sm:text-base">
+                    <span className="text-brand-tertiary tracking-widest font-bold">VALOR FINAL DEL COFRE:</span>
                     <span className="text-white font-bold font-mono text-base sm:text-lg">${totalCost.toFixed(2)}</span>
                   </div>
 
                   <button
                     onClick={handleStartCheckout}
-                    className="w-full bg-[#ffb3ad] hover:bg-[#ffdad7] border border-[#ffb3ad] text-[#51221f] hover:text-black py-3.5 font-label-caps text-xs tracking-widest font-bold scale-100 active:scale-95 transition-all text-center cursor-pointer rounded-none"
+                    className="w-full bg-brand-secondary hover:bg-[#400A0A] border border-brand-secondary hover:border-brand-tertiary text-brand-light py-3.5 font-sh-subheader text-xs tracking-widest font-bold scale-100 active:scale-95 transition-all text-center cursor-pointer rounded-[8px]"
                     id="checkout-proceed-btn"
                   >
                     PROCEDER AL DESPACHO
@@ -211,16 +210,15 @@ export default function CartDrawer({
             /* Part 2: Checkout Information Registry */
             <form onSubmit={handleSubmitCheckout} className="flex flex-col h-full justify-between gap-6" id="checkout-form-block">
               <div className="flex flex-col gap-5">
-                <span className="font-label-caps text-[10px] text-secondary tracking-widest block uppercase">PASO II: REGISTRO IMPERIAL</span>
-                <h4 className="font-sh-subheader text-base text-white border-b border-outline-variant/20 pb-2">
+                <span className="font-sh-subheader text-[10px] text-brand-tertiary tracking-widest block uppercase">PASO II: REGISTRO IMPERIAL</span>
+                <h4 className="font-h1-cinematic text-sm sm:text-base text-white border-b border-brand-border/40 pb-2">
                   DATOS DE ENTREGA DE ARMAMENTO
                 </h4>
 
                 <div className="flex flex-col gap-4">
                   
-                  {/* Name field */}
-                  <div>
-                    <label className="font-sh-subheader text-secondary/95 text-xs tracking-widest block mb-1.5 uppercase">
+                                    <div>
+                    <label className="font-sh-subheader text-brand-tertiary/95 text-xs tracking-widest block mb-1.5 uppercase">
                       Nombre del Explorador:
                     </label>
                     <input 
@@ -229,14 +227,14 @@ export default function CartDrawer({
                       placeholder="Don Hernán de Córdoba"
                       value={shippingName}
                       onChange={(e) => setShippingName(e.target.value)}
-                      className="w-full bg-background border border-outline-variant text-[#e5e2e1] font-body-main px-3 py-2 outline-none focus:border-secondary transition-all rounded-none text-sm"
+                      className="w-full bg-brand-surface border border-brand-border text-white font-body-main px-3 py-2 outline-none focus:border-brand-tertiary transition-all rounded-[6px] text-sm"
                       id="checkout-name"
                     />
                   </div>
 
                   {/* Email field */}
                   <div>
-                    <label className="font-sh-subheader text-secondary/95 text-xs tracking-widest block mb-1.5 uppercase">
+                    <label className="font-sh-subheader text-brand-tertiary/95 text-xs tracking-widest block mb-1.5 uppercase">
                       Registro de Correo:
                     </label>
                     <input 
@@ -245,14 +243,14 @@ export default function CartDrawer({
                       placeholder="explorador.trujillo@corona.es"
                       value={shippingEmail}
                       onChange={(e) => setShippingEmail(e.target.value)}
-                      className="w-full bg-background border border-outline-variant text-[#e5e2e1] font-body-main px-3 py-2 outline-none focus:border-secondary transition-all rounded-none text-sm"
+                      className="w-full bg-brand-surface border border-brand-border text-white font-body-main px-3 py-2 outline-none focus:border-brand-tertiary transition-all rounded-[6px] text-sm"
                       id="checkout-email"
                     />
                   </div>
 
                   {/* Address scroll registry */}
                   <div>
-                    <label className="font-sh-subheader text-secondary/95 text-xs tracking-widest block mb-1.5 uppercase">
+                    <label className="font-sh-subheader text-brand-tertiary/95 text-xs tracking-widest block mb-1.5 uppercase">
                       Coordenadas / Dirección de Despacho:
                     </label>
                     <textarea 
@@ -261,26 +259,25 @@ export default function CartDrawer({
                       placeholder="Fuerte de Trujillo, Muelle Principal de la Bahía de Hibueras, Estandarte #15."
                       value={shippingAddress}
                       onChange={(e) => setShippingAddress(e.target.value)}
-                      className="w-full bg-background border border-outline-variant text-[#e5e2e1] font-body-main px-3 py-2 outline-none focus:border-secondary transition-all rounded-none text-sm resize-none"
+                      className="w-full bg-brand-surface border border-brand-border text-white font-body-main px-3 py-2 outline-none focus:border-brand-tertiary transition-all rounded-[6px] text-sm resize-none"
                       id="checkout-address"
                     />
                   </div>
 
-                </div>
-
-                <div className="bg-surface-container border border-outline-variant/40 p-3.5 text-xs text-on-surface-variant flex gap-2 font-sans items-start mt-2">
-                  <CreditCard className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
-                  <p className="leading-snug">
+                 <div className="bg-brand-surface border border-brand-border/60 p-3.5 text-xs text-brand-light/75 flex gap-2 font-sans items-start mt-2 rounded-[8px]">
+                  <CreditCard className="w-4 h-4 text-brand-tertiary shrink-0 mt-0.5" />
+                  <p className="leading-snug text-left">
                     * Al tratarse de una compra del arsenal comprado con fines de demostración, no se solicitará un cargo real a tu tarjeta de crédito militar.
                   </p>
                 </div>
               </div>
+              </div>
 
               {/* Foot action triggers */}
-              <div className="flex flex-col gap-3 pt-4 border-t border-outline-variant/30">
+              <div className="flex flex-col gap-3 pt-4 border-t border-brand-border/40">
                 <button
                   type="submit"
-                  className="w-full bg-secondary hover:bg-white text-black py-3.5 font-label-caps text-xs tracking-widest font-bold transition-all cursor-pointer rounded-none"
+                  className="w-full bg-brand-secondary hover:bg-[#400A0A] border border-brand-secondary hover:border-brand-tertiary text-white py-3.5 font-sh-subheader text-xs tracking-widest font-bold transition-all cursor-pointer rounded-[8px]"
                   id="checkout-submit-btn"
                 >
                   FINALIZAR COMPRA
@@ -288,7 +285,7 @@ export default function CartDrawer({
                 <button
                   type="button"
                   onClick={() => setCheckoutStep("cart")}
-                  className="w-full bg-transparent border-2 border-outline-variant hover:border-secondary text-on-surface py-2 font-label-caps text-xs tracking-widest transition-all cursor-pointer rounded-none animate-none"
+                  className="w-full bg-transparent border border-brand-border hover:border-brand-tertiary text-brand-light py-2.5 font-sh-subheader text-xs tracking-widest transition-all cursor-pointer rounded-[8px]"
                   id="checkout-cancel-btn"
                 >
                   REGRESAR AL COFRE
@@ -303,36 +300,36 @@ export default function CartDrawer({
                 <CheckCircle2 className="w-10 h-10 animate-bounce" />
               </div>
 
-              <div className="bg-[#1a1816] border-2 border-[#eebd8e] p-6 text-center relative max-w-sm w-full">
+              <div className="bg-brand-surface border-2 border-brand-tertiary p-6 text-center relative max-w-sm w-full rounded-[10px] shadow-[0_0_20px_rgba(166,124,82,0.15)]">
                 {/* rivets */}
-                <span className="absolute top-1.5 left-2 text-[#eebd8e]/50 text-[8px]">⚙</span>
-                <span className="absolute top-1.5 right-2 text-[#eebd8e]/50 text-[8px]">⚙</span>
-                <span className="absolute bottom-1.5 left-2 text-[#eebd8e]/50 text-[8px]">⚙</span>
-                <span className="absolute bottom-1.5 right-2 text-[#eebd8e]/50 text-[8px]">⚙</span>
+                <span className="absolute top-1.5 left-2 text-brand-tertiary/40 text-[8px]">⚙</span>
+                <span className="absolute top-1.5 right-2 text-brand-tertiary/40 text-[8px]">⚙</span>
+                <span className="absolute bottom-1.5 left-2 text-brand-tertiary/40 text-[8px]">⚙</span>
+                <span className="absolute bottom-1.5 right-2 text-brand-tertiary/40 text-[8px]">⚙</span>
 
-                <span className="font-label-caps text-[9px] tracking-widest text-[#eebd8e]/80 block uppercase">
+                <span className="font-sh-subheader text-[9px] tracking-widest text-brand-tertiary block uppercase">
                   SALVOCONDUCTO IMPERIAL DE COFRE
                 </span>
                 
-                <h4 className="font-h1-cinematic text-lg text-[#ffb3ad] block font-bold mt-2 leading-tight">
+                <h4 className="font-h1-cinematic text-lg text-white block mt-2 leading-tight">
                   ¡MUCHAS GRACIAS POR TU COMPRA!
                 </h4>
                 <span className="font-sh-subheader text-[11px] text-zinc-300 block uppercase tracking-wider mt-1">
                   Adquisición Registrada Exitosamente
                 </span>
 
-                <span className="bg-black/40 text-secondary border border-outline-variant/60 font-mono text-xs px-3 py-1 inline-block font-bold mt-3">
+                <span className="bg-black/60 text-brand-tertiary border border-brand-border font-mono text-xs px-3 py-1.5 inline-block font-bold mt-3 rounded-[4px]">
                   CÓDIGO: {orderId}
                 </span>
 
-                <p className="font-body-main text-base text-zinc-200 leading-relaxed text-justify mt-5 pt-4 border-t border-outline-variant/30">
-                  Estimado explorador/a <strong className="text-white">{shippingName}</strong>, el escribano real ha asentado tu reclamo bajo las actas oficiales de Hibueras. Tus mercancías de guerra del cofre han sido procesadas con próximo zarpe de carabelas desde Trujillo. Recibirás tu salvoconducto digital en la dirección de correo electrónico: <em className="text-secondary not-italic font-mono">{shippingEmail}</em>.
+                <p className="font-body-main text-xs sm:text-sm text-zinc-300 leading-relaxed text-justify mt-5 pt-4 border-t border-brand-border/40">
+                  Estimado explorador/a <strong className="text-white">{shippingName}</strong>, el escribano real ha asentado tu reclamo bajo las actas oficiales de Hibueras. Tus mercancías de guerra del cofre han sido procesadas con próximo zarpe de carabelas desde Trujillo. Recibirás tu salvoconducto digital en la dirección de correo electrónico: <em className="text-brand-tertiary not-italic font-mono">{shippingEmail}</em>.
                 </p>
               </div>
 
               <button
                 onClick={handleFinishSuccess}
-                className="w-full bg-[#ffb3ad] hover:bg-white text-black py-3.5 font-label-caps text-xs tracking-widest font-bold transition-all cursor-pointer rounded-none shadow-md mt-4"
+                className="w-full bg-brand-secondary hover:bg-[#400A0A] border border-brand-secondary hover:border-brand-tertiary text-white py-3.5 font-sh-subheader text-xs tracking-widest font-bold transition-all cursor-pointer rounded-[8px] shadow-md mt-4"
                 id="finish-success-btn"
               >
                 RETORNAR AL ASTILLERO

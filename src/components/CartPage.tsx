@@ -59,30 +59,30 @@ export default function CartPage({
       
       {/* Page header */}
       <div className="text-center mb-12">
-        <span className="font-sh-subheader tracking-widest text-secondary text-xs font-bold block mb-2 uppercase">
+        <span className="font-sh-subheader tracking-widest text-brand-tertiary text-xs font-bold block mb-2 uppercase">
           LOGÍSTICA MILITAR DE LA LEGIÓN
         </span>
-        <h2 className="font-h1-cinematic text-3xl sm:text-5xl text-on-surface tracking-wide uppercase">
+        <h2 className="font-h1-cinematic text-3xl sm:text-5xl text-white tracking-wide uppercase">
           COFRE DE COMPRAS
         </h2>
-        <div className="w-20 h-[1.5px] bg-[#eebd8e]/40 mx-auto mt-4" />
+        <div className="w-20 h-[1.5px] bg-brand-tertiary/40 mx-auto mt-4" />
       </div>
 
       {cartItems.length === 0 ? (
         /* Empty cart view */
-        <div className="text-center py-20 bg-[#0E0E0E]/90 border border-outline-variant/30 p-10 flex flex-col items-center gap-6" id="empty-cart-page">
-          <div className="w-16 h-16 rounded-full bg-[#2B0505]/60 border border-[#A67C52]/50 flex items-center justify-center text-secondary">
+        <div className="text-center py-20 bg-brand-surface border border-brand-border/40 p-10 flex flex-col items-center gap-6 rounded-[10px] shadow-[0_4px_24px_rgba(0,0,0,0.5)]" id="empty-cart-page">
+          <div className="w-16 h-16 rounded-full bg-brand-secondary/20 border border-brand-tertiary/40 flex items-center justify-center text-[#ff4c4c]">
             <ShoppingBag className="w-8 h-8" />
           </div>
           <div>
             <h3 className="font-h1-cinematic text-xl text-white uppercase tracking-wider">COFRE DE ADQUISICIONES VACÍO</h3>
-            <p className="font-body-main text-zinc-400 text-base max-w-md mx-auto mt-2 leading-relaxed">
+            <p className="font-body-main text-zinc-400 text-sm max-w-md mx-auto mt-2 leading-relaxed">
               No tienes ningún armamento, edición o prenda militar asignada en tu cofre en este momento. Visita nuestro catálogo e integra elementos a tu arsenal comprado.
             </p>
           </div>
           <button
             onClick={onContinueShopping}
-            className="bg-[#2B0505] hover:bg-neutral-900 border border-secondary text-secondary font-label-caps text-xs px-8 py-3.5 tracking-widest cursor-pointer transition-colors"
+            className="bg-brand-secondary hover:bg-[#400A0A] border border-brand-secondary hover:border-brand-tertiary text-brand-light font-sh-subheader text-xs px-8 py-3.5 tracking-widest cursor-pointer transition-colors rounded-[8px]"
           >
             VOLVER AL ARSENAL DE TIENDA
           </button>
@@ -93,10 +93,10 @@ export default function CartPage({
           
           {/* Main Items Listing (Columns: Item info, Quantity selectors, Price totals) */}
           <div className="lg:col-span-8 flex flex-col gap-4">
-            <div className="hidden sm:grid grid-cols-12 bg-black/60 p-4 border border-outline-variant/40 text-[10px] font-sh-subheader text-[#A67C52] tracking-widest uppercase">
-              <span className="col-span-6">ADQUISICIÓN</span>
+            <div className="hidden sm:grid grid-cols-12 bg-[#141414] p-4 border border-brand-border/40 text-[10px] font-sh-subheader text-brand-tertiary tracking-widest uppercase rounded-[8px]">
+              <span className="col-span-6 text-left pl-2">ADQUISICIÓN</span>
               <span className="col-span-3 text-center">CANTIDAD</span>
-              <span className="col-span-3 text-right">PRECIO TOTAL</span>
+              <span className="col-span-3 text-right pr-2">PRECIO TOTAL</span>
             </div>
 
             <div className="flex flex-col gap-4">
@@ -107,7 +107,7 @@ export default function CartPage({
                 return (
                   <div 
                     key={`${item.product.id}-${item.selectedSize || ""}-${item.selectedPlatform || ""}`}
-                    className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center bg-[#111]/80 border border-outline-variant/40 hover:border-[#A67C52]/40 p-5 transition-colors relative"
+                    className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center bg-[#141414] border border-brand-border hover:border-brand-tertiary/50 p-5 transition-all duration-300 relative rounded-[10px] shadow-sm"
                     id={`cart-page-item-${item.product.id}`}
                   >
                     
@@ -116,12 +116,12 @@ export default function CartPage({
                       <img 
                         src={item.product.image} 
                         alt={item.product.title} 
-                        className="w-16 h-16 sm:w-20 sm:h-20 object-cover border border-outline-variant/40 flex-shrink-0"
+                        className="w-16 h-16 sm:w-20 sm:h-20 object-cover border border-brand-border/40 flex-shrink-0 rounded-[8px]"
                       />
                       
                       <div className="flex flex-col gap-1 text-left">
                         {item.product.badge && (
-                          <span className="bg-[#2B0505] text-[#eebd8e] border border-outline-variant/50 text-[8px] font-sh-subheader font-bold px-1.5 py-0.5 tracking-wider w-max uppercase">
+                          <span className="bg-brand-secondary text-brand-light border border-brand-secondary/40 text-[8px] font-sh-subheader font-bold px-1.5 py-0.5 tracking-wider w-max uppercase rounded-[4px]">
                             {item.product.badge}
                           </span>
                         )}
@@ -132,21 +132,20 @@ export default function CartPage({
                         {/* Selected Options label */}
                         <div className="flex flex-col gap-0.5 text-zinc-400 font-mono text-[10px] uppercase">
                           {isItemMerch ? (
-                            <span>Talla: <strong className="text-secondary">{item.selectedSize}</strong></span>
+                            <span>Talla: <strong className="text-brand-tertiary">{item.selectedSize}</strong></span>
                           ) : (
-                            item.selectedPlatform && <span>Plataforma: <strong className="text-secondary">{item.selectedPlatform}</strong></span>
+                            item.selectedPlatform && <span>Plataforma: <strong className="text-brand-tertiary">{item.selectedPlatform}</strong></span>
                           )}
                           <span>Unidad: ${item.product.price.toFixed(2)}</span>
                         </div>
                       </div>
                     </div>
-
-                    {/* Quantity Selector controls block */}
+                                       {/* Quantity Selector controls block */}
                     <div className="col-span-1 sm:col-span-3 flex justify-start sm:justify-center items-center gap-3">
-                      <div className="flex border border-outline-variant/50 bg-[#0d0d0d] items-center">
+                      <div className="flex border border-brand-border/50 bg-[#0d0d0d] items-center rounded-[6px] overflow-hidden">
                         <button
                           onClick={() => onUpdateQuantity(item.product.id, -1, item.selectedSize, item.selectedPlatform)}
-                          className="w-8 h-8 flex items-center justify-center text-[#eebd8e] hover:bg-[#2B0505] hover:text-white transition-all cursor-pointer"
+                          className="w-8 h-8 flex items-center justify-center text-brand-tertiary hover:bg-[#2B0505] hover:text-white transition-all cursor-pointer"
                           disabled={item.quantity <= 1}
                         >
                           <Minus className="w-3.5 h-3.5" />
@@ -156,7 +155,7 @@ export default function CartPage({
                         </span>
                         <button
                           onClick={() => onUpdateQuantity(item.product.id, 1, item.selectedSize, item.selectedPlatform)}
-                          className="w-8 h-8 flex items-center justify-center text-[#eebd8e] hover:bg-[#2B0505] hover:text-white transition-all cursor-pointer"
+                          className="w-8 h-8 flex items-center justify-center text-brand-tertiary hover:bg-[#2B0505] hover:text-white transition-all cursor-pointer"
                         >
                           <Plus className="w-3.5 h-3.5" />
                         </button>
@@ -165,7 +164,7 @@ export default function CartPage({
                       {/* Delete button representation for singular items */}
                       <button
                         onClick={() => onRemoveItem(item.product.id, item.selectedSize, item.selectedPlatform)}
-                        className="p-1.5 text-zinc-500 hover:text-red-400 border border-outline-variant/30 hover:border-red-900/40 bg-[#0B0B0B] transition-colors cursor-pointer"
+                        className="p-1.5 text-zinc-500 hover:text-rose-400 border border-brand-border/40 hover:border-rose-900/40 bg-[#0D0D0D] rounded-[6px] transition-colors cursor-pointer"
                         title="Desechar del cofre"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -175,7 +174,7 @@ export default function CartPage({
                     {/* Pricing total display for specific row */}
                     <div className="col-span-1 sm:col-span-3 text-left sm:text-right">
                       <span className="text-zinc-500 text-[9px] font-sans sm:hidden block mb-1">PRECIO ACUMULADO:</span>
-                      <span className="font-sh-subheader text-base text-secondary font-bold">
+                      <span className="font-sh-subheader text-base text-brand-tertiary font-bold">
                         ${itemTotalPrice.toFixed(2)}
                       </span>
                     </div>
@@ -189,7 +188,7 @@ export default function CartPage({
             <div className="mt-4 text-left">
               <button
                 onClick={onContinueShopping}
-                className="font-label-caps text-xs tracking-widest text-[#eebd8e] hover:text-white transition-colors cursor-pointer border border-[#A67C52]/30 px-3.5 py-2 bg-black/40"
+                className="font-sh-subheader text-xs tracking-widest text-brand-tertiary hover:text-white border border-brand-border/60 hover:border-brand-tertiary px-4 py-2.5 bg-[#0D0D0D] rounded-[8px] transition-all cursor-pointer"
               >
                 ← SEGUIR ELIGIENDO EJEMPLARES
               </button>
@@ -201,9 +200,9 @@ export default function CartPage({
           <div className="lg:col-span-4 flex flex-col gap-6">
             
             {/* Promo Coupon Card */}
-            <div className="p-6 bg-[#0E0E0E] border border-outline-variant/40 flex flex-col gap-4">
-              <h4 className="font-sh-subheader text-xs text-secondary tracking-widest uppercase flex items-center gap-2">
-                <Tag className="w-4 h-4 text-[#A67C52]" />
+            <div className="p-6 bg-brand-surface border border-brand-border/40 flex flex-col gap-4 rounded-[10px] shadow-md">
+              <h4 className="font-sh-subheader text-xs text-brand-tertiary tracking-widest uppercase flex items-center gap-2">
+                <Tag className="w-4 h-4 text-brand-tertiary" />
                 SALVOCONDUCTO / CUPONES:
               </h4>
 
@@ -216,12 +215,12 @@ export default function CartPage({
                     setCouponInput(e.target.value);
                     setCouponError("");
                   }}
-                  className="bg-[#1C1B1B] border border-outline-variant/60 text-white font-sans text-xs px-3 py-2.5 flex-1 outline-none focus:border-secondary transition-colors uppercase rounded-none"
+                  className="bg-[#0D0D0D] border border-brand-border text-white font-sans text-xs px-3 py-2.5 flex-1 outline-none focus:border-brand-tertiary transition-colors uppercase rounded-[6px]"
                   id="coupon-apply-input-element"
                 />
                 <button
                   type="submit"
-                  className="bg-[#2B0505] hover:bg-red-950 text-secondary border border-[#A67C52] text-xs font-label-caps px-4 py-2.5 font-bold cursor-pointer transition-colors"
+                  className="bg-brand-secondary hover:bg-[#400A0A] text-brand-light border border-brand-secondary hover:border-brand-tertiary text-xs font-sh-subheader px-4 py-2.5 font-bold cursor-pointer transition-all rounded-[8px]"
                 >
                   APLICAR
                 </button>
@@ -229,7 +228,7 @@ export default function CartPage({
 
               {/* Helpful coupon warnings and hints */}
               <p className="text-[10px] text-zinc-500 italic mt-0.5">
-                💡 Intente registrar: <strong className="text-secondary text-right font-mono">HELL10</strong> (10%), <strong className="text-secondary font-mono">CONQUISTA20</strong> (20%), o el cupón especial <strong className="text-secondary font-mono">RRGAMES</strong> (15%).
+                💡 Intente registrar: <strong className="text-brand-tertiary text-right font-mono">HELL10</strong> (10%), <strong className="text-brand-tertiary font-mono">CONQUISTA20</strong> (20%), o el cupón especial <strong className="text-brand-tertiary font-mono">RRGAMES</strong> (15%).
               </p>
 
               {couponError && (

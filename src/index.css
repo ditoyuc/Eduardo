@@ -12,53 +12,31 @@
   --font-label-caps: "MedievalSharp", sans-serif;
   --font-body-main: "EB Garamond", serif;
   
-  --color-surface-bright: #3a3939;
-  --color-secondary: #eebd8e;
-  --color-on-primary-container: #ad6c68;
-  --color-outline-variant: #524342;
+  /* Primary precise design system specifications */
+  --color-brand-primary: #0D0D0D;
+  --color-brand-secondary: #2B0505;
+  --color-brand-tertiary: #A67C52;
+  --color-brand-dark: #4A4E52;
+  --color-brand-light: #D9C5B2;
+  --color-brand-surface: #171717;
+  --color-brand-border: #3A3A3A;
+  --color-brand-success: #3E6B48;
+
+  /* Map basic tailwind custom theme vars for existing components */
+  --color-background: #0D0D0D;
+  --color-surface: #171717;
+  --color-surface-dim: #0D0D0D;
+  --color-surface-container: #171717;
+  --color-surface-container-low: #0f0f0f;
+  --color-surface-container-high: #242424;
+  --color-secondary: #A67C52;
+  --color-outline: #3A3A3A;
+  --color-outline-variant: #4A4E52;
+  --color-on-background: #D9C5B2;
+  --color-on-surface: #D9C5B2;
+  --color-on-surface-variant: #4A4E52;
   --color-error: #ffb4ab;
   --color-error-container: #93000a;
-  --color-on-tertiary-fixed-variant: #43474b;
-  --color-surface-container-high: #2a2a2a;
-  --color-surface-container-low: #1c1b1b;
-  --color-surface-container-highest: #353534;
-  --color-secondary-fixed: #ffdcbd;
-  --color-secondary-fixed-dim: #eebd8e;
-  --color-on-surface-variant: #d7c2c0;
-  --color-primary-fixed-dim: #ffb3ad;
-  --color-tertiary-fixed-dim: #c3c7cb;
-  --color-inverse-on-surface: #313030;
-  --color-on-secondary: #472a06;
-  --color-on-primary-fixed-variant: #6d3734;
-  --color-on-tertiary-fixed: #181c20;
-  --color-tertiary-fixed: #e0e3e7;
-  --color-secondary-container: #64421d;
-  --color-on-secondary-fixed-variant: #61401b;
-  --color-tertiary: #c3c7cb;
-  --color-inverse-surface: #e5e2e1;
-  --color-tertiary-container: #0f1316;
-  --color-background: #131313;
-  --color-on-primary: #51221f;
-  --color-on-primary-fixed: #370d0c;
-  --color-on-background: #e5e2e1;
-  --color-surface-variant: #353534;
-  --color-on-error: #690005;
-  --color-on-error-container: #ffdad6;
-  --color-primary: #ffb3ad;
-  --color-surface-container: #201f1f;
-  --color-surface-dim: #131313;
-  --color-on-surface: #e5e2e1;
-  --color-inverse-primary: #894e4a;
-  --color-surface-container-lowest: #0e0e0e;
-  --color-primary-container: #2b0505;
-  --color-outline: #9f8c8b;
-  --color-on-tertiary-container: #7a7e82;
-  --color-primary-fixed: #ffdad7;
-  --color-on-secondary-container: #dfaf81;
-  --color-surface-tint: #ffb3ad;
-  --color-surface: #131313;
-  --color-on-tertiary: #2d3135;
-  --color-on-secondary-fixed: #2c1600;
 }
 
 /* Custom Tactical Epic Classes */
@@ -75,11 +53,11 @@
 @keyframes flicker-animation {
   0%, 100% {
     opacity: 0.85;
-    filter: drop-shadow(0 0 4px #eebd8e);
+    filter: drop-shadow(0 0 4px #A67C52);
   }
   50% {
     opacity: 1;
-    filter: drop-shadow(0 0 16px #eebd8e);
+    filter: drop-shadow(0 0 16px #A67C52);
   }
 }
 
@@ -88,8 +66,8 @@
 }
 
 .gold-glow:hover {
-  box-shadow: 0 0 20px rgba(238, 189, 142, 0.4);
-  border-color: #eebd8e;
+  box-shadow: 0 0 20px rgba(166, 124, 82, 0.4);
+  border-color: #A67C52;
 }
 
 .metal-border {
@@ -102,7 +80,7 @@
   position: absolute;
   width: 4px;
   height: 4px;
-  background: #eebd8e;
+  background: #A67C52;
   border-radius: 50%;
   opacity: 0.6;
 }

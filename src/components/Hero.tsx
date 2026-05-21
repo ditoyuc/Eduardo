@@ -42,35 +42,28 @@ export default function Hero({ onOpenTrailer, onScrollToStore }: HeroProps) {
         </div>
 
         {/* Sub-label Subheader */}
-        <h2 className="font-sh-subheader text-secondary text-sm sm:text-lg md:text-2xl mb-10 tracking-widest uppercase selection:bg-secondary/20 selection:text-secondary max-w-2xl px-4 text-center leading-relaxed">
+        <h2 className="font-sh-subheader text-brand-light text-sm sm:text-lg md:text-xl xl:text-2xl mb-10 tracking-widest uppercase selection:bg-brand-secondary/20 selection:text-brand-tertiary max-w-2xl px-4 text-center leading-relaxed">
           Defiende tus raíces, conquista tu historia.
         </h2>
 
-        {/* Call to Actions (Mitered buttons) */}
+        {/* Call to Actions (Mitered buttons aligned to Design System specifications) */}
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full justify-center px-6">
+          {/* Primary Button: Bronze (#A67C52) with Dark black text (#0D0D0D) and 8px rounding */}
           <button 
             onClick={onScrollToStore}
-            className="group relative w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 bg-primary-container border-2 border-secondary overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 cursor-pointer rounded-none shadow-[0_4px_20px_rgba(43,5,5,0.5)]"
+            className="group relative w-full sm:w-auto px-10 py-4 bg-brand-tertiary text-brand-primary font-h1-cinematic text-sm tracking-widest font-bold hover:bg-[#c29668] transition-all duration-300 hover:scale-[1.03] active:scale-95 cursor-pointer rounded-[8px] shadow-[0_4px_20px_rgba(0,0,0,0.35)]"
             id="hero-buy"
           >
-            {/* Corner Rivet Details */}
-            <span className="absolute top-1 left-1 w-1 h-1 bg-secondary rounded-full opacity-60"></span>
-            <span className="absolute top-1 right-1 w-1 h-1 bg-secondary rounded-full opacity-60"></span>
-            <span className="absolute bottom-1 left-1 w-1 h-1 bg-secondary rounded-full opacity-60"></span>
-            <span className="absolute bottom-1 right-1 w-1 h-1 bg-secondary rounded-full opacity-60"></span>
-            
-            <span className="relative z-10 font-label-caps text-sm tracking-widest text-secondary group-hover:text-on-secondary transition-colors">
-              COMPRAR AHORA
-            </span>
-            <div className="absolute inset-0 bg-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+            COMPRAR AHORA
           </button>
 
+          {/* Secondary Button: Transparent surface with bronze border, and #2B0505 dark blood-red hover overlay */}
           <button 
             onClick={onOpenTrailer}
-            className="w-full sm:w-auto px-8 sm:px-10 py-3.5 sm:py-4 border-2 border-outline-variant text-on-surface-variant font-label-caps text-sm tracking-widest hover:border-secondary hover:text-secondary group transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 cursor-pointer rounded-none"
+            className="w-full sm:w-auto px-10 py-4 bg-transparent border-2 border-brand-tertiary text-brand-light hover:text-brand-light hover:bg-[#2B0505] font-h1-cinematic text-sm tracking-widest font-bold transition-all duration-350 hover:scale-[1.03] active:scale-95 flex items-center justify-center gap-2 cursor-pointer rounded-[8px]"
             id="hero-trailer"
           >
-            <Play className="w-4 h-4 fill-on-surface-variant group-hover:fill-secondary group-hover:text-secondary transition-colors" />
+            <Play className="w-4 h-4 text-brand-tertiary fill-brand-tertiary group-hover:fill-brand-light transition-colors" />
             <span>VER TRAILER</span>
           </button>
         </div>

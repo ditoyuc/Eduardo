@@ -84,20 +84,20 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
   const activeSpec = currentSpecialtiesList[selectedSpecialtyIndex] || currentSpecialtiesList[0];
 
   return (
-    <div className="bg-[#111111] p-6 sm:p-10 border border-outline-variant relative max-w-4xl mx-auto rounded-none shadow-2xl overflow-hidden self-center">
+    <div className="bg-brand-surface p-6 sm:p-10 border border-brand-border relative max-w-4xl mx-auto rounded-[10px] shadow-2xl overflow-hidden self-center">
       {/* Absolute borders */}
-      <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-outline-variant/30" />
-      <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-outline-variant/30" />
+      <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-brand-border opacity-30" />
+      <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-brand-border opacity-30" />
 
       {/* Main Title Banner */}
       <div className="text-center mb-8 relative z-10">
-        <h2 className="font-h1-cinematic text-xl sm:text-3xl text-on-surface tracking-wider uppercase">
+        <h2 className="font-h1-cinematic text-xl sm:text-3xl text-brand-light tracking-wider uppercase">
           CENTRO DE RECLUTAMIENTO
         </h2>
-        <span className="font-label-caps text-xs text-[#eebd8e] tracking-widest block mt-1 uppercase">
+        <span className="font-label-caps text-xs text-brand-tertiary tracking-widest block mt-1 uppercase">
           Sello de Alistamiento Militar v.1521
         </span>
-        <div className="w-16 h-[2px] bg-secondary/35 mx-auto mt-3" />
+        <div className="w-16 h-[2px] bg-brand-tertiary/35 mx-auto mt-3" />
       </div>
 
       {!generatedCard ? (
@@ -106,14 +106,13 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
           
           {/* Left panel customization mechanics */}
           <div className="lg:col-span-7 flex flex-col gap-6">
-            
-            {/* Action Name Label Input */}
+                      {/* Action Name Label Input */}
             <div id="recruiter-name-section">
-              <label className="font-sh-subheader text-[#eebd8e] text-xs tracking-widest block mb-2 uppercase">
+              <label className="font-sh-subheader text-brand-tertiary text-xs tracking-widest block mb-2 uppercase">
                 Nombre del Soldado o Guerrero:
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-3 w-4 h-4 text-secondary/50" />
+                <User className="absolute left-3 top-3 w-4 h-4 text-brand-tertiary/60" />
                 <input
                   type="text"
                   maxLength={25}
@@ -121,7 +120,7 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
                   placeholder="Por ejemplo: Don Gonzalo de Trujillo o Lempira el Grande"
                   value={profileName}
                   onChange={(e) => setProfileName(e.target.value)}
-                  className="w-full bg-background/50 border border-outline-variant text-[#e5e2e1] font-body-main pl-10 pr-4 py-2.5 outline-none focus:border-secondary hover:border-outline transition-all rounded-none"
+                  className="w-full bg-[#0D0D0D]/50 border border-brand-border text-[#e5e2e1] font-body-main pl-10 pr-4 py-2.5 outline-none focus:border-brand-tertiary hover:border-brand-tertiary/70 transition-all rounded-[8px]"
                   id="recruit-name-input"
                 />
               </div>
@@ -129,7 +128,7 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
 
             {/* Select Faction Selector tabs with details */}
             <div id="recruiter-faction-section">
-              <label className="font-sh-subheader text-[#eebd8e] text-xs tracking-widest block mb-3 uppercase">
+              <label className="font-sh-subheader text-brand-tertiary text-xs tracking-widest block mb-3 uppercase">
                 Elegir Estandarte y Bando:
               </label>
               <div className="grid grid-cols-2 gap-4">
@@ -138,10 +137,10 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
                 <button
                   type="button"
                   onClick={() => handleFactionChange("conquistador")}
-                  className={`py-3 px-4 border text-center transition-all cursor-pointer font-sh-subheader text-xs sm:text-sm ${
+                  className={`py-3 px-4 border text-center transition-all cursor-pointer font-sh-subheader text-xs sm:text-sm rounded-[8px] ${
                     selectedFaction === "conquistador"
-                      ? "bg-primary-container-low border-[#ffb3ad] text-primary"
-                      : "bg-background/25 border-outline-variant/60 text-[#e5e2e1]/70 hover:border-outline"
+                      ? "bg-brand-secondary/40 border-brand-tertiary text-brand-tertiary font-bold"
+                      : "bg-[#0D0D0D]/25 border-brand-border text-[#e5e2e1]/70 hover:border-brand-tertiary/50"
                   }`}
                   id="recruit-faction-conquistador"
                 >
@@ -152,10 +151,10 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
                 <button
                   type="button"
                   onClick={() => handleFactionChange("defensor")}
-                  className={`py-3 px-4 border text-center transition-all cursor-pointer font-sh-subheader text-xs sm:text-sm ${
+                  className={`py-3 px-4 border text-center transition-all cursor-pointer font-sh-subheader text-xs sm:text-sm rounded-[8px] ${
                     selectedFaction === "defensor"
-                      ? "bg-primary-container-low border-[#ffb4ab] text-primary"
-                      : "bg-background/25 border-outline-variant/60 text-[#e5e2e1]/70 hover:border-outline"
+                      ? "bg-brand-secondary/40 border-brand-tertiary text-brand-tertiary font-bold"
+                      : "bg-[#0D0D0D]/25 border-brand-border text-[#e5e2e1]/70 hover:border-brand-tertiary/50"
                   }`}
                   id="recruit-faction-defensor"
                 >
@@ -167,7 +166,7 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
 
             {/* Specialty Selection and carousel */}
             <div id="recruiter-specialty-section">
-              <label className="font-sh-subheader text-[#eebd8e] text-xs tracking-widest block mb-2 uppercase">
+              <label className="font-sh-subheader text-brand-tertiary text-xs tracking-widest block mb-2 uppercase">
                 Elegir Especialidad táctica:
               </label>
               <div className="flex flex-col gap-2.5">
@@ -176,63 +175,62 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
                     key={spec.name}
                     type="button"
                     onClick={() => setSelectedSpecialtyIndex(idx)}
-                    className={`p-3 text-left border flex items-center justify-between transition-all cursor-pointer ${
+                    className={`p-3 text-left border flex items-center justify-between transition-all cursor-pointer rounded-[8px] ${
                       selectedSpecialtyIndex === idx
-                        ? "bg-surface-container-high border-[#eebd8e] text-white"
-                        : "bg-background/10 border-outline-variant/40 text-on-surface-variant hover:bg-background/25"
+                        ? "bg-brand-surface border-brand-tertiary text-brand-tertiary"
+                        : "bg-[#0D0D0D]/10 border-brand-border text-brand-light/70 hover:bg-[#0D0D0D]/25"
                     }`}
                     id={`recruit-spec-btn-${idx}`}
                   >
                     <div>
                       <span className="font-sh-subheader text-xs sm:text-sm block">{spec.name}</span>
-                      <span className="font-sans text-[10px] text-on-surface-variant/75 block mt-0.5">
+                      <span className="font-sans text-[10px] text-brand-light/40 block mt-0.5">
                         Arma: {spec.weapon}
                       </span>
                     </div>
-                    {selectedSpecialtyIndex === idx && <Check className="w-4 h-4 text-secondary" />}
+                    {selectedSpecialtyIndex === idx && <Check className="w-4 h-4 text-brand-tertiary" />}
                   </button>
                 ))}
               </div>
             </div>
-
           </div>
 
           {/* Right side statistical allocator and item summary */}
-          <div className="lg:col-span-5 flex flex-col justify-between bg-surface-container/30 border border-outline-variant/60 p-5 rounded-none">
+          <div className="lg:col-span-5 flex flex-col justify-between bg-brand-surface border border-brand-border p-5 rounded-[10px] shadow-lg">
             
             {/* Prefill specialty summary details */}
             <div className="mb-6">
-              <span className="font-label-caps text-[10px] text-[#eebd8e] tracking-widest block mb-1 uppercase">DETALLES DE HISTORIAL</span>
-              <h4 className="font-sh-subheader text-base text-white border-b border-outline-variant/20 pb-2 mb-2">
+              <span className="font-label-caps text-[10px] text-brand-tertiary tracking-widest block mb-1 uppercase text-left">DETALLES DE HISTORIAL</span>
+              <h4 className="font-sh-subheader text-base text-white border-b border-brand-border/20 pb-2 mb-2 text-left">
                 {activeSpec.name}
               </h4>
-              <p className="font-body-main text-xs sm:text-sm text-on-surface-variant/85 italic leading-relaxed text-justify mb-4">
+              <p className="font-body-main text-xs sm:text-sm text-brand-light/85 italic leading-relaxed text-justify mb-4">
                 "{activeSpec.bio}"
               </p>
 
-              <div className="grid grid-cols-2 gap-y-2 gap-x-4 border-b border-outline-variant/20 pb-4 text-xs font-sans">
-                <div>
-                  <span className="text-secondary font-sh-subheader text-[10px] block uppercase">ARMA DE COMBATE</span>
+              <div className="grid grid-cols-2 gap-y-2 gap-x-4 border-b border-brand-border/20 pb-4 text-xs font-sans">
+                <div className="text-left">
+                  <span className="text-brand-tertiary font-sh-subheader text-[10px] block uppercase">ARMA DE COMBATE</span>
                   <span className="text-white text-xs">{activeSpec.weapon}</span>
                 </div>
-                <div>
-                  <span className="text-secondary font-sh-subheader text-[10px] block uppercase font-bold">PROTECCIÓN</span>
+                <div className="text-left">
+                  <span className="text-brand-tertiary font-sh-subheader text-[10px] block uppercase font-bold">PROTECCIÓN</span>
                   <span className="text-white text-xs">{activeSpec.armor}</span>
                 </div>
               </div>
             </div>
 
             {/* Custom attributes points adjuster */}
-            <div className="mb-6">
+            <div className="mb-6 text-left">
               <div className="flex items-center justify-between mb-3">
-                <span className="font-label-caps text-[10px] text-[#eebd8e] tracking-widest uppercase">ASIGNAR ATRIBUTOS</span>
-                <span className="bg-secondary/15 text-[#eebd8e] font-mono text-xs px-2 py-0.5">
+                <span className="font-label-caps text-[10px] text-brand-tertiary tracking-widest uppercase">ASIGNAR ATRIBUTOS</span>
+                <span className="bg-brand-secondary/40 border border-brand-tertiary/20 text-brand-tertiary font-mono text-xs px-2.5 py-0.5 rounded-[4px]">
                   RESERVA DE PUNTOS: {pointsPool}
                 </span>
               </div>
 
               {/* Adjuster list */}
-              <div className="flex flex-col gap-3 font-sh-subheader text-xs text-on-surface-variant">
+              <div className="flex flex-col gap-3 font-sh-subheader text-xs text-brand-light/90">
                 
                 {/* Stat Strength */}
                 <div className="flex items-center justify-between">
@@ -242,42 +240,42 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
                       type="button"
                       disabled={customStats.fuerza <= 30}
                       onClick={() => adjustStat("fuerza", -5)}
-                      className="w-6 h-6 border border-outline-variant bg-black hover:border-secondary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer"
+                      className="w-6 h-6 border border-brand-border bg-black hover:border-brand-tertiary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer rounded-[4px] transition-all"
                     >
-                      <Minus className="w-3 h-3 text-secondary" />
+                      <Minus className="w-3 h-3 text-brand-tertiary" />
                     </button>
                     <span className="font-bold text-sm w-9 text-center text-white">{customStats.fuerza}</span>
                     <button
                       type="button"
                       disabled={pointsPool <= 0 || customStats.fuerza >= 100}
                       onClick={() => adjustStat("fuerza", 5)}
-                      className="w-6 h-6 border border-outline-variant bg-black hover:border-secondary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer"
+                      className="w-6 h-6 border border-brand-border bg-black hover:border-brand-tertiary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer rounded-[4px] transition-all"
                     >
-                      <Plus className="w-3 h-3 text-secondary" />
+                      <Plus className="w-3 h-3 text-brand-tertiary" />
                     </button>
                   </div>
                 </div>
 
                 {/* Stat Faith */}
                 <div className="flex items-center justify-between">
-                  <span className="uppercase">✙ DEVER / FE SAGRADA</span>
+                  <span className="uppercase">✙ DEBIDO / FE SAGRADA</span>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
                       disabled={customStats.fe <= 30}
                       onClick={() => adjustStat("fe", -5)}
-                      className="w-6 h-6 border border-outline-variant bg-black hover:border-secondary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer"
+                      className="w-6 h-6 border border-brand-border bg-black hover:border-brand-tertiary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer rounded-[4px] transition-all"
                     >
-                      <Minus className="w-3 h-3 text-secondary" />
+                      <Minus className="w-3 h-3 text-brand-tertiary" />
                     </button>
                     <span className="font-bold text-sm w-9 text-center text-white">{customStats.fe}</span>
                     <button
                       type="button"
                       disabled={pointsPool <= 0 || customStats.fe >= 100}
                       onClick={() => adjustStat("fe", 5)}
-                      className="w-6 h-6 border border-outline-variant bg-black hover:border-secondary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer"
+                      className="w-6 h-6 border border-brand-border bg-black hover:border-brand-tertiary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer rounded-[4px] transition-all"
                     >
-                      <Plus className="w-3 h-3 text-secondary" />
+                      <Plus className="w-3 h-3 text-brand-tertiary" />
                     </button>
                   </div>
                 </div>
@@ -290,18 +288,18 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
                       type="button"
                       disabled={customStats.agilidad <= 30}
                       onClick={() => adjustStat("agilidad", -5)}
-                      className="w-6 h-6 border border-outline-variant bg-black hover:border-secondary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer"
+                      className="w-6 h-6 border border-brand-border bg-black hover:border-brand-tertiary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer rounded-[4px] transition-all"
                     >
-                      <Minus className="w-3 h-3 text-secondary" />
+                      <Minus className="w-3 h-3 text-brand-tertiary" />
                     </button>
                     <span className="font-bold text-sm w-9 text-center text-white">{customStats.agilidad}</span>
                     <button
                       type="button"
                       disabled={pointsPool <= 0 || customStats.agilidad >= 100}
                       onClick={() => adjustStat("agilidad", 5)}
-                      className="w-6 h-6 border border-outline-variant bg-black hover:border-secondary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer"
+                      className="w-6 h-6 border border-brand-border bg-black hover:border-brand-tertiary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer rounded-[4px] transition-all"
                     >
-                      <Plus className="w-3 h-3 text-secondary" />
+                      <Plus className="w-3 h-3 text-brand-tertiary" />
                     </button>
                   </div>
                 </div>
@@ -314,18 +312,18 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
                       type="button"
                       disabled={customStats.honor <= 30}
                       onClick={() => adjustStat("honor", -5)}
-                      className="w-6 h-6 border border-outline-variant bg-black hover:border-secondary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer"
+                      className="w-6 h-6 border border-brand-border bg-black hover:border-brand-tertiary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer rounded-[4px] transition-all"
                     >
-                      <Minus className="w-3 h-3 text-secondary" />
+                      <Minus className="w-3 h-3 text-brand-tertiary" />
                     </button>
                     <span className="font-bold text-sm w-9 text-center text-white">{customStats.honor}</span>
                     <button
                       type="button"
                       disabled={pointsPool <= 0 || customStats.honor >= 100}
                       onClick={() => adjustStat("honor", 5)}
-                      className="w-6 h-6 border border-outline-variant bg-black hover:border-secondary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer"
+                      className="w-6 h-6 border border-brand-border bg-black hover:border-brand-tertiary flex items-center justify-center p-0.5 disabled:opacity-30 cursor-pointer rounded-[4px] transition-all"
                     >
-                      <Plus className="w-3 h-3 text-secondary" />
+                      <Plus className="w-3 h-3 text-brand-tertiary" />
                     </button>
                   </div>
                 </div>
@@ -336,7 +334,7 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
             {/* Launch Cards Generator */}
             <button
               type="submit"
-              className="w-full bg-[#ffb3ad] hover:bg-[#ffdad7] border border-[#ffb3ad] text-[#51221f] hover:text-black py-3 font-label-caps text-xs tracking-widest font-bold scale-100 active:scale-95 transition-all cursor-pointer rounded-none"
+              className="w-full bg-brand-tertiary hover:bg-[#c29668] border-none text-brand-primary py-3.5 font-h1-cinematic text-xs tracking-widest font-extrabold scale-100 active:scale-95 transition-all cursor-pointer rounded-[8px] shadow-md"
               id="generate-recruit-id"
             >
               GENERAR PLACA DE ALISTAMIENTO
@@ -415,15 +413,15 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
             <button
               onClick={handlePrintMockup}
               disabled={isPrinting}
-              className="flex items-center justify-center gap-2 w-full bg-secondary hover:bg-[#ffdad7] text-black py-3 font-label-caps text-xs tracking-widest font-bold transition-all duration-300 cursor-pointer disabled:opacity-40 rounded-none shadow-md"
+              className="flex items-center justify-center gap-2 w-full bg-brand-tertiary hover:bg-[#c29668] text-brand-primary py-3 font-h1-cinematic text-xs tracking-widest font-extrabold transition-all duration-300 cursor-pointer disabled:opacity-40 rounded-[8px] shadow-md border-none"
               id="card-print-btn"
             >
-              <Printer className="w-4 h-4" />
+              <Printer className="w-4 h-4 text-brand-primary" />
               <span>{isPrinting ? "SOCIABILIZANDO ESTANDARTE..." : "IMPRIMIR ARCHIVO"}</span>
             </button>
             <button
               onClick={() => setGeneratedCard(null)}
-              className="w-full bg-transparent border-2 border-outline-variant hover:border-secondary hover:text-secondary text-on-surface py-3 font-label-caps text-xs tracking-widest transition-all rounded-none cursor-pointer"
+              className="w-full bg-transparent border-2 border-brand-border hover:border-brand-tertiary hover:text-brand-tertiary text-brand-light py-3 font-h1-cinematic text-xs tracking-widest transition-all rounded-[8px] cursor-pointer"
               id="card-remake-btn"
             >
               NUEVO RECLUTA
@@ -437,7 +435,7 @@ export default function FactionsRecruiter({ onClose }: FactionsRecruiterProps) {
       <div className="text-center mt-6">
         <button
           onClick={onClose}
-          className="font-sh-subheader text-xs text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"
+          className="font-sh-subheader text-xs text-brand-light/60 hover:text-brand-tertiary transition-colors cursor-pointer"
           id="recruiter-manual-close"
         >
           ← RETORNAR AL PORTAL PRINCIPAL
